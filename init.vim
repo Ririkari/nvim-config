@@ -23,9 +23,14 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'neoclide/coc.nvim'
+Plug 'preservim/nerdtree'
+Plug 'preservim/tagbar'
+Plug 'fannheyward/coc-pyright'
 
 
-" color schemas
+"color schemas"
+Plug 'sainnhe/sonokai'
 Plug 'morhetz/gruvbox'  " colorscheme gruvbox
 Plug 'mhartington/oceanic-next'  " colorscheme OceanicNext
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
@@ -44,7 +49,7 @@ call plug#end()
 "let g:neomake_python_enabled_makers = ['pylint']"
 
 
-colorscheme gruvbox-material
+colorscheme sonokai
 "colorscheme OceanicNext
 "let g:material_terminal_italics = 1
 " variants: default, palenight, ocean, lighter, darker, default-community,
@@ -60,7 +65,12 @@ endif
 "let ayucolor="mirage"
 "colorscheme ayu
 
-
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-e> :tabclose<CR>
+nnoremap <C-z> :NERDTree<CR>
+nnoremap <C-x> :NERDTreeToggle<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 
 " turn off search highlight
 nnoremap ,<space> :nohl<CR>
@@ -86,10 +96,10 @@ cmp.setup {
     end,
   },
   mapping = {
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-j>'] = cmp.mapping.select_prev_item(),
+    ['<C-k>'] = cmp.mapping.select_next_item(),
+    ['<C-l>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-h>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm {
