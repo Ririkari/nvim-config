@@ -23,6 +23,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'akinsho/toggleterm.nvim'
 Plug 'neoclide/coc.nvim'
 Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
@@ -42,6 +43,16 @@ Plug 'maxmellon/vim-jsx-pretty'
 
 call plug#end()
 
+let g:toggleterm_terminal_mapping = '<a-t>'
+" or manually...
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><a-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+" By applying the mappings this way you can pass a count to your
+" mapping to open a specific window.
+" For example: 2<C-t> will open terminal 2
+nnoremap <silent><a-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+inoremap <silent><a-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 " when to activate neomake
 "call neomake#configure#automake('nrwi', 500)
